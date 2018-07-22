@@ -1,0 +1,34 @@
+
+<div class="container color-dark">
+	<div class="col">
+		<p> ajouter a la liste</p>
+	</div>
+	<div class="col">
+		<p> votre liste contient ({{nombre}})  elements</p>
+	</div>
+</div>
+
+<div class="container color-light  "  >
+	<div class="col">
+		<p class="sm"> ce que vous voulez faire</p>
+		
+		<form>
+		<input type="text" class="txt" name="item" placeholder="life goals.." [(ngModel)]="goalText">
+	
+		<input type="submit" class="btn" [value]="btntext" (click)="additem()"  >
+		</form>
+	</div>
+	<div class="col"  >
+		<p class="life-container" *ngFor="let goal of goals; let i=index" (click)="remove(i)" [@popOverState]="stateName">
+		 {{goal}}
+		 </p>
+	</div>
+</div>
+
+<div [@popOverState]="stateName">
+        <p>Hello! I'm a helpful message.</p>
+</div>
+<button (click)="toggle()" >Toggle PopOver</button>
+
+
+
